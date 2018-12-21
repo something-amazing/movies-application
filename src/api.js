@@ -1,6 +1,26 @@
 module.exports = {
-  getMovies: () => {
-    return fetch('/api/movies')
-    .then(response => response.json());
-  }
+      getMovies: () => {
+        return fetch('/api/movies')
+        .then(response => response.json());
+      },
+      deleteMovie: (id) => {
+          return fetch('/api/movies', {
+              method: 'DELETE',
+              headers: {
+                  'id': id,
+              }
+          })
+      },
+      addMovie: (e,name, rating, id) => {
+          return fetch('/api/movies', {
+              method: 'POST',
+              headers: {
+                  'title' = name,
+                  'rating' = rating
+              }
+          })
+      },
+      editMovie: () => {
+
+      }
 };
