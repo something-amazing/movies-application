@@ -12,14 +12,29 @@ const {getMovies} = require('./api.js');
 
 getMovies()
     .then((movies) => {
-        $('.container').append('<pre>Here are all the movies:</pre>');
+        $('#loading').show();
+        $('.main').append(`<pre>Here are all the movies:</pre>`);
         movies.forEach(({title, rating, id}) => {
-            $('.container').append(`<pre>${title} - rating: ${rating}</pre>`);
-        })
-        $('#loading').hide()
+            $('.card-group').append(`<div class="card">
+                <div class="card-body">
+                  <button class="deleteMovie float-right btn-sm"><small>x</small></button>
+                  <h5 class="card-title">${title}</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">${rating}</small></p>
+            </div>`);
+        });
+        $('#loading').hide();
     })
     .catch((error) => {
             alert('Oh no! Something went wrong.\nCheck the console for details.');
             console.log(error);
             $('#loading').hide();
     });
+
+$('.deleteMovie').click(function () {
+    $(this).parent().hide();
+});
+
+$('.addMovie').click(function () {
+
+});
