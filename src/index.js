@@ -21,6 +21,7 @@ getMovies()
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text"></p>
                   <p class="card-text"><small class="text-muted">${rating}</small></p>
+                  
             </div>`);
         });
         $('#loading').hide();
