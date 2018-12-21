@@ -9,7 +9,7 @@ html, body {
     text-align: center;
 }
 
-.loading{
+#loading{
     position: fixed;
     height: 100%;
     width: 100%;

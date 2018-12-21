@@ -2,8 +2,8 @@
  * es6 modules and imports
  */
 const $ = require('jquery');
-// import loadingMessage from './hello';
-// loadingMessage();
+import loadingMessage from './hello';
+loadingMessage();
 /**
  * require style imports
  */
@@ -11,15 +11,15 @@ const {getMovies} = require('./api.js');
 
 
 getMovies()
-    .then($('.loading').show)
     .then((movies) => {
-          $('.container').append('<pre>Here are all the movies:</pre>');
-          movies.forEach(({title, rating, id}) => {
-              $('.container').append(`<pre>${title} - rating: ${rating}</pre>`);
-          });
-        }).catch((error) => {
-          alert('Oh no! Something went wrong.\nCheck the console for details.');
-          console.log(error);
-          $('.loading').remove();
+        $('.container').append('<pre>Here are all the movies:</pre>');
+        movies.forEach(({title, rating, id}) => {
+            $('.container').append(`<pre>${title} - rating: ${rating}</pre>`);
         })
-    .then($('.loading').remove);
+        $('#loading').hide()
+    })
+    .catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+            $('#loading').hide();
+    });
