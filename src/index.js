@@ -1,20 +1,25 @@
 /**
  * es6 modules and imports
  */
-import sayHello from './hello';
-sayHello('World');
-
+const $ = require('jquery');
+// import loadingMessage from './hello';
+// loadingMessage();
 /**
  * require style imports
  */
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
-});
+
+getMovies()
+    .then($('.loading').show)
+    .then((movies) => {
+          $('.container').append('<pre>Here are all the movies:</pre>');
+          movies.forEach(({title, rating, id}) => {
+              $('.container').append(`<pre>${title} - rating: ${rating}</pre>`);
+          });
+        }).catch((error) => {
+          alert('Oh no! Something went wrong.\nCheck the console for details.');
+          console.log(error);
+          $('.loading').remove();
+        })
+    .then($('.loading').remove);

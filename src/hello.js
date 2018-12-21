@@ -1,1 +1,1 @@
-export default (name) => console.log(`Hello there, ${name}!`);
+export const loadingMessage = () => console.log(`Loading Movie Goodness!`);
