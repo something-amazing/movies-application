@@ -17,7 +17,7 @@ getMovies()
         movies.forEach(({title, rating, id}) => {
             $('.card-group').append(`<div class="card">
                 <div class="card-body">
-                  <button class="deleteMovie float-right btn-sm"><small>x</small></button>
+                  <button class="deleteMovie float-right btn-sm border-0"><small><i class="far fa-trash-alt"></i></small></button>
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text"></p>
                   <p class="card-text"><small class="text-muted">${rating}</small></p>

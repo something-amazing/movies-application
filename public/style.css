@@ -19,7 +19,8 @@ html, body {
     background-color: white;
     text-align: center;
     z-index: 10;
+    padding-top: 20%;
 }
-.message{
-    top: 50%;
-}
+
+
+/*spinner css*/
