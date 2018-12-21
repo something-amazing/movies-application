@@ -17,7 +17,7 @@ getMovies()
         movies.forEach(({title, rating, id}) => {
             $('.card-group').append(`<div class="card">
                 <div class="card-body">
-                  <button class="deleteMovie float-right btn-sm border-0" type="submit"><small><i class="far fa-trash-alt"></i></small></button>
+                  <button class="deleteMovie float-right btn-sm border-0" type="submit" value="${id}"><small><i class="far fa-trash-alt"></i></small></button>
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text"></p>
                   <p class="card-text"><small class="text-muted">${rating}</small></p>
@@ -33,6 +33,8 @@ getMovies()
 
 $('.deleteMovie').click(function (e) {
     e.preventDefault();
+    let id = $(this).val();
+    deleteMovie(id);
 
 });
 
@@ -47,3 +49,5 @@ $('#addMovie').click(function (e) {
 $('#mybtn').click(function () {
     $('#myModal').css("display", "block");
 });
+
+

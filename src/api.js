@@ -11,16 +11,19 @@ module.exports = {
               }
           })
       },
-      addMovie: (e,name, rating, id) => {
-          return fetch('/api/movies', {
+      addMovie: (e,name, rating) => {
+        return fetch('/api/movies', {
               method: 'POST',
               headers: {
-                  'title' = name,
-                  'rating' = rating
+                  'title' : name,
+                  'rating' : rating
               }
           })
       },
       editMovie: () => {
 
       }
+
 };
+
+
