@@ -26,17 +26,9 @@
       "id": 5
     },
     {
-      "name": "John",
-      "location": "Boston",
+      "title": "John Dies at the end",
+      "rating": "10",
       "id": 6
-    },
-    {
-      "name": "John",
-      "location": "Boston",
-      "id": 7
-    },
-    {
-      "id": 8
     }
   ]
 }

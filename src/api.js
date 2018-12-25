@@ -11,14 +11,15 @@ module.exports = {
               }
           })
       },
-      addMovie: (e,name, rating) => {
-        return fetch('/api/movies', {
+      addMovie: (name, rating) => {
+          return fetch('/api/movies', {
               method: 'POST',
-              headers: {
-                  'title' : name,
-                  'rating' : rating
-              }
-          })
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                  title : name,
+                  rating: rating
+              })
+          });
       },
       editMovie: () => {
 
