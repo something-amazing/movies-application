@@ -13,14 +13,14 @@ const {getMovies, deleteMovie, addMovie, editMovie} = require('./api.js');
 getMovies()
     .then((movies) => {
         $('#loading').show();
-        $('.main').append(`<div><pre>Here are all the movies:</pre></div>`);
+        $('.main').append(`<div><pre class="text-white">Here are all the movies:</pre></div>`);
         movies.forEach(({title, rating, id}) => {
-            $('.card-group').append(`<div class="card">
+            $('.card-group').append(`<div class="card bg-transparent text-white border-white">
                 <div class="card-body">
-                  <button class="delete" value="${id}"><small><i class="far fa-trash-alt"></i></small></button>
+                  <button class="delete btn btn-secondary" value="${id}"><small><i class="far fa-trash-alt"></i></small></button>
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text"></p>
-                  <p class="card-text"><small class="text-muted">${rating}</small></p>
+                  <p class="card-text"><small class="text-white">Rating: ${rating}</small></p>
             </div>`);
         });
         $('#loading').hide();
@@ -30,6 +30,7 @@ getMovies()
             console.log(error);
             $('#loading').hide();
     });
+
 
 $('.delete').on('click','.delete',function (event) {
     const id = $(event.target).val();
@@ -44,10 +45,6 @@ $('#addMovie').click(function (e) {
     const rating = $('#movieRating').val();
     addMovie(name,rating);
     location.reload();
-});
-
-$('#mybtn').click(function () {
-    $('#myModal').css("display", "block");
 });
 
 

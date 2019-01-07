@@ -4,6 +4,12 @@ html, body {
 .main{
     text-align: center;
 }
+
+body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -57,6 +63,3 @@ html, body {
 .delete{
     float: right;
 }
-
-
-/*spinner css*/
