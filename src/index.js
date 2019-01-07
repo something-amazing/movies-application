@@ -17,7 +17,7 @@ getMovies()
         movies.forEach(({title, rating, id}) => {
             $('.card-group').append(`<div class="card">
                 <div class="card-body">
-                  <button class="deleteMovie float-right btn-sm border-0" type="submit" value="${id}"><small><i class="far fa-trash-alt"></i></small></button>
+                  <button class="delete" value="${id}"><small><i class="far fa-trash-alt"></i></small></button>
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text"></p>
                   <p class="card-text"><small class="text-muted">${rating}</small></p>
@@ -31,17 +31,17 @@ getMovies()
             $('#loading').hide();
     });
 
-$('.deleteMovie').click(function (e) {
-    e.preventDefault();
-    let id = $(this).val();
+$('.delete').on('click','.delete',function (event) {
+    const id = $(event.target).val();
+    console.log(id);
     deleteMovie(id);
 
 });
 
 $('#addMovie').click(function (e) {
     e.preventDefault();
-    let name = $('#movieName').val();
-    let rating = $('#movieRating').val();
+    const name = $('#movieName').val();
+    const rating = $('#movieRating').val();
     addMovie(name,rating);
     location.reload();
 });
